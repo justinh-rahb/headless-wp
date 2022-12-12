@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import WPAPI from "wpapi";
 
 const App = () => {
- // Initialize the state for the posts and the current page
- const [posts, setPosts] = useState([]);
+ // Initialize the state for the products and the current page
+ const [products, setProducts] = useState([]);
  const [page, setPage] = useState(1);
 
  // Make the App component's state and functions available globally
@@ -14,43 +14,40 @@ const App = () => {
    setPage: setPage
  };
 
- // Fetch the posts when the page changes
+ // Fetch the products when the page changes
  useEffect(() => {
 	// Initialize the WPAPI client
-	const wp = new WPAPI({
- 	endpoint: "https://blog.rahb.ca/wp-json"
+	const wc = new WPAPI({
+ 	endpoint: "https://store.rahb.ca/wp-json/wc/v3",
+ 	consumerKey: process.env.WC_CONSUMER_KEY,
+ 	consumerSecret: process.env.WC_CONSUMER_SECRET
 	});
 
-	// Get the posts for the current page
-	wp.posts().page(page).then(posts => {
- 	setPosts(posts);
+	// Get the products for the current page
+	wc.products().page(page).then(products => {
+ 	setProducts(products);
 	});
  }, [page]);
 
- // Render the posts on the page
+ // Render the products on the page
  return (
-	<div className="posts">
- 	{posts.map(post => {
-   	const title = post.title.rendered;
-   	const excerpt = post.excerpt.rendered;
-   	const link = post.link;
+	<div className="products">
+ 	{products.map(product => {
+   	const title = product.name;
+   	const excerpt = product.short_description;
+   	const link = product.permalink;
+   	const image = product.images[0].src;
 
    	return (
-     	<div className="post" key={post.id}>
-       	<h2><a href={link}>{title}</a></h2>
-       	<p>{excerpt}</p>
+     	<div className="product" key={product.id}>
+       	<a href={link}>
+         	<img src={image} alt={title} />
+         	<h2>{title}</h2>
+         	<p>{excerpt}</p>
+       	</a>
      	</div>
    	);
  	})}
-	</div>
- );
-
- // Add the pagination controls
- return (
-	<div className="pagination">
- 	<button onClick={() => setPage(page - 1)}>Previous</button>
- 	<span>{page}</span>
- 	<button onClick={() => setPage(page + 1)}>Next</button>
 	</div>
  );
 };
