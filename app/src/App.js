@@ -9,7 +9,7 @@ const App = () => {
 useEffect(() => {
 	// Initialize the WPAPI client
 	const wc = new WPAPI({
- 	endpoint: "https://my-store.com/wp-json/wc/v3",
+ 	endpoint: "https://store.rahb.ca/wp-json/wc/v3",
  	consumerKey: process.env.WC_CONSUMER_KEY,
  	consumerSecret: process.env.WC_CONSUMER_SECRET
 	});
