@@ -1,0 +1,21 @@
+name: Build and Publish React App
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - run: npm install
+    - run: npm run build --prefix app
+    - uses: actions/upload-artifact@v2
+      with:
+        name: app-build
+        path: app/build
