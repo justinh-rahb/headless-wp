@@ -10,7 +10,7 @@ const App = () => {
  useEffect(() => {
 	// Initialize the WPAPI client
 	const wp = new WPAPI({
- 	endpoint: "http://your-site.com/wp-json"
+ 	endpoint: "https://blog.rahb.ca/wp-json"
 	});
 
 	// Get the posts for the current page
