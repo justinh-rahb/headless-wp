@@ -9,9 +9,9 @@ const App = () => {
  useEffect(() => {
 	// Initialize the WPAPI client
 	const wc = new WPAPI({
- 	endpoint: "https://store.rahb.ca/wp-json/wc/v3",
- 	consumerKey: process.env.WC_CONSUMER_KEY,
- 	consumerSecret: process.env.WC_CONSUMER_SECRET
+ 	endpoint: "https://store.rahb.ca/wp-json/wc/v3/products",
+ 	username: process.env.WC_CONSUMER_KEY,
+ 	password: process.env.WC_CONSUMER_SECRET
 	});
 
 	// Get the products for the first page
