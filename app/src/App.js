@@ -38,8 +38,10 @@ const App = () => {
 
    	return (
      	<div className="post" key={post.id}>
-	<img src={featured_image_url} />
-       	<h2><a href={link}>{title}</a></h2>
+	<a href={link}>
+	  <img src={featured_image_url} />
+       	  <h2>{title}</h2>
+	</a>
        	<p>{excerpt}</p>
      	</div>
    	);
