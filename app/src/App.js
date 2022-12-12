@@ -18,7 +18,7 @@ const App = () => {
  useEffect(() => {
 	// Initialize the WPAPI client
 	const wp = new WPAPI({
- 	endpoint: "https://blog.rahb.ca/wp-json"
+ 	endpoint: "https://blog.rahb.ca/wp-json/wp/v2/posts?_embed"
 	});
 
 	// Get the posts for the current page
@@ -34,9 +34,11 @@ const App = () => {
    	const title = post.title.rendered;
    	const excerpt = post.excerpt.rendered;
    	const link = post.link;
+	const featured_image_url = post.jetpack_featured_media_url;
 
    	return (
      	<div className="post" key={post.id}>
+	<img src={featured_image_url} />
        	<h2><a href={link}>{title}</a></h2>
        	<p>{excerpt}</p>
      	</div>
