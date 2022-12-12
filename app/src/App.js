@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import WPAPI from "wpapi";
+import WooAPI from "woocommerce-api";
 
 const App = () => {
  // Initialize the state for the products
@@ -7,11 +7,12 @@ const App = () => {
 
  // Fetch the products when the component is mounted
  useEffect(() => {
-	// Initialize the WPAPI client
-	const wc = new WPAPI({
- 	endpoint: "https://store.rahb.ca/wp-json/wc/v3/products",
- 	username: process.env.WC_CONSUMER_KEY,
- 	password: process.env.WC_CONSUMER_SECRET
+	// Initialize the WooAPI client
+	const wc = new WooAPI({
+ 	url: 'https://store.rahb.ca',
+	endpoint: 'products',
+ 	consumerKey: process.env.WC_CONSUMER_KEY,
+ 	consumerSecret: process.env.WC_CONSUMER_SECRET
 	});
 
 	// Get the products for the first page
