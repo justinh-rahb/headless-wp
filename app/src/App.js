@@ -22,7 +22,7 @@ const App = () => {
 	});
 
 	// Get the posts for the current page
-	wp.posts(25).page(page).then(posts => {
+	wp.posts().page(page).then(posts => {
  	setPosts(posts);
 	});
  }, [page]);
