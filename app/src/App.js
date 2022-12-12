@@ -6,7 +6,7 @@ const App = () => {
  const [products, setProducts] = useState([]);
 
  // Fetch the products when the component is mounted
-useEffect(() => {
+ useEffect(() => {
 	// Initialize the WPAPI client
 	const wc = new WPAPI({
  	endpoint: "https://store.rahb.ca/wp-json/wc/v3",
