@@ -37,9 +37,8 @@ const App = () => {
 
    	return (
      	<div className="post" key={post.id}>
-       	<h2>{title}</h2>
+       	<h2><a href={link}>{title}</a></h2>
        	<p>{excerpt}</p>
-       	<a href={link}>Read More</a>
      	</div>
    	);
  	})}
