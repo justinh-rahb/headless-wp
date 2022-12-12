@@ -6,6 +6,14 @@ const App = () => {
  const [posts, setPosts] = useState([]);
  const [page, setPage] = useState(1);
 
+ // Make the App component's state and functions available globally
+ window.App = {
+   state: {
+     page: page
+   },
+   setPage: setPage
+ };
+
  // Fetch the posts when the page changes
  useEffect(() => {
 	// Initialize the WPAPI client
