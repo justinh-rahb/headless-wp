@@ -1,7 +1,6 @@
 {
   "name": "app",
   "version": "0.1.0",
-  "homepage": "https://justinh-rahb.github.io/headless-wp",
   "scripts": {
     "build": "react-scripts build"
   },
