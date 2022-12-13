@@ -40,7 +40,7 @@ const App = () => {
      	<div className="post" key={post.id}>
 	<a href={link}>
 	  <img src={featured_image_url} />
-       	  <h2>{title}</h2>
+       	  <h2 style="text-align:center">{title}</h2>
 	</a>
        	<p>{excerpt}</p>
      	</div>
