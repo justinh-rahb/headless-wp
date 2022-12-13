@@ -18,7 +18,7 @@ const App = () => {
  useEffect(() => {
 	// Initialize the WPAPI client
 	const wp = new WPAPI({
- 	endpoint: "https://blog.rahb.ca/wp-json/wp/v2/posts?_embed"
+ 	endpoint: "https://store.rahb.ca/wp-json/wp/v2/posts?_embed"
 	});
 
 	// Get the posts for the current page
