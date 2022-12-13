@@ -15,6 +15,7 @@ code {
 }
 
 img {
+  display: block;
   max-width: 750px;
   margin-left:auto;
   margin-right:auto
