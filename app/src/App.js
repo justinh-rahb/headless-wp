@@ -25,6 +25,16 @@ const App = () => {
 	wp.posts().page(page).then(posts => {
  	setPosts(posts);
 	});
+
+	// Set an interval to call the useEffect function again after a certain amount of time
+	const interval = setInterval(() => {
+ 	useEffect();
+	}, 300000); // Call the useEffect function again after 300 seconds
+
+	// Clean up the interval when the component unmounts
+	return () => {
+ 	clearInterval(interval);
+	};
  }, [page]);
 
  // Render the posts on the page
