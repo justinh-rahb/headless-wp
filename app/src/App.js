@@ -14,27 +14,27 @@ const App = () => {
    setPage: setPage
  };
 
+ // Set an interval to call the useEffect function again after a certain amount of time
+ const interval = setInterval(() => {
+   useEffect();
+ }, 300000); // Call the useEffect function again after 300 seconds
+
+ // Clean up the interval when the component unmounts
+ return () => {
+   clearInterval(interval);
+ };
+
  // Fetch the posts when the page changes
  useEffect(() => {
 	// Initialize the WPAPI client
 	const wp = new WPAPI({
- 	endpoint: "https://store.rahb.ca/wp-json/wp/v2/posts?_embed"
+ 	  endpoint: "https://store.rahb.ca/wp-json/wp/v2/posts?_embed"
 	});
 
 	// Get the posts for the current page
 	wp.posts().page(page).then(posts => {
- 	setPosts(posts);
+ 	  setPosts(posts);
 	});
-
-	// Set an interval to call the useEffect function again after a certain amount of time
-	const interval = setInterval(() => {
- 	useEffect();
-	}, 300000); // Call the useEffect function again after 300 seconds
-
-	// Clean up the interval when the component unmounts
-	return () => {
- 	clearInterval(interval);
-	};
  }, [page]);
 
  // Render the posts on the page
