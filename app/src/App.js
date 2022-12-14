@@ -14,16 +14,6 @@ const App = () => {
    setPage: setPage
  };
 
- // Set an interval to call the useEffect function again after a certain amount of time
- const interval = setInterval(() => {
-   useEffect();
- }, 300000); // Call the useEffect function again after 300 seconds
-
- // Clean up the interval when the component unmounts
- return () => {
-   clearInterval(interval);
- };
-
  // Fetch the posts when the page changes
  useEffect(() => {
 	// Initialize the WPAPI client
@@ -60,13 +50,13 @@ const App = () => {
  );
 
  // Add the pagination controls
- return (
+ /*return (
 	<div className="pagination">
  	<button onClick={() => setPage(page - 1)}>Previous</button>
  	<span>{page}</span>
  	<button onClick={() => setPage(page + 1)}>Next</button>
 	</div>
- );
+ );*/
 };
 
 export default App;
